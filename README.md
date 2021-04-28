@@ -10,6 +10,9 @@ An online platform to eliminate the manual interaction and revisiting of the per
 ## Signup
 ![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Signup.png)
 
+## Signup Error
+![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Error.png)
+
 ## Navbar
 ![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Navbar.png)
 

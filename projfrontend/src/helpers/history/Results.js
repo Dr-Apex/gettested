@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {isAuthenticated} from '../apis/auth';
-import {getReports} from '../apis/user';
+import {getReport} from '../apis/user';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -15,27 +15,34 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '3vh',
     marginBottom: '3vh',
   },
+  desc: {
+    fontSize: 20,
+  },
 }));
 
-const Results = () => {
+const Results = ({reportId}) => {
   const classes = useStyles();
   const {user} = isAuthenticated();
-  const [reports, setReports] = useState([]);
+  const [report, setReport] = useState([]);
   const [error, setError] = useState(false);
 
-  const loadReports = () => {
-    getReports().then(data => {
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setReports(data);
-      }
-    });
+  const loadReports = rId => {
+    if (rId === '') {
+      return false;
+    } else {
+      getReport(rId).then(data => {
+        if (data.error) {
+          setError(data.error);
+        } else {
+          setReport(data);
+        }
+      });
+    }
   };
 
   useEffect(() => {
-    loadReports();
-  }, []);
+    loadReports(reportId);
+  }, [reportId]);
 
   return (
     <Grid className={classes.brand} item xs={3}>
@@ -43,19 +50,11 @@ const Results = () => {
         Result
       </Typography>
       <Divider className={classes.divider} />
-      {reports.map((test, i) => {
-        return (
-          <div key={i}>
-            {test.userid === user._id ?
-              (
-                <Typography variant="body2" component="p">
-                  {test.result}
-                </Typography>
-              ) : null
-            }
-          </div>
-        );
-      })}
+      <div>
+        <Typography className={classes.desc} variant="body2" component="p">
+          {report.result}
+        </Typography>
+      </div>
     </Grid>
   );
 };

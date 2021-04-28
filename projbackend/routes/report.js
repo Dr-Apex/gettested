@@ -26,8 +26,6 @@ router.post(
 // read
 router.get(
   '/report/:reportId',
-  isSignedIn,
-  isAuthenticated,
   getReport
 );
 router.get(

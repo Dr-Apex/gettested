@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Timeline = () => {
+const Timeline = ({setReportId}) => {
   const classes = useStyles();
   const {user} = isAuthenticated();
   const [reports, setReports] = useState([]);
@@ -53,7 +53,12 @@ const Timeline = () => {
           <div key={i}>
             {test.userid === user._id ?
               (
-                <Grid className={classes.itemBox} item xs={12}>
+                <Grid
+                  className={classes.itemBox}
+                  item
+                  xs={12}
+                  onClick={() => setReportId(test._id)}
+                >
                   <Typography className={classes.item} variant="h6">
                     {test.date} | {test.sampleid}
                   </Typography>

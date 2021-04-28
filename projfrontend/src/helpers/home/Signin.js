@@ -131,7 +131,7 @@ const Signin = () => {
           </div>
           <div className={classes.linkBox}>
             <Link className={classes.link}>
-            Forgot Password?
+              Forgot Password?
             </Link>
           </div>
           <Button

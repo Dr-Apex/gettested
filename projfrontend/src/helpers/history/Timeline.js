@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     display: 'flex',
     alignItems: 'center',
+    '&:hover': {
+      cursor: 'pointer',
+      opacity: 0.8,
+    },
   },
   item: {
     fontSize: 30,

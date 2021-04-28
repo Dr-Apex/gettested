@@ -48,7 +48,7 @@ const Signin = () => {
   const [values, setValues] = useState({
     email: 'drew01@gmail.com',
     password: 'ab@dAbc9',
-    error: '',
+    error: false,
     loading: false,
     didRedirect: false
   });
@@ -65,12 +65,15 @@ const Signin = () => {
     setValues({...values, error: false, loading: true});
     signin({email, password})
     .then(data => {
+      console.log(data);
       if (data.err) {
-        setValues({...values, error: data.err, loading: false});
+        setValues({...values, error: true, loading: false});
       } else {
-        authenticate(data, () => {
-          setValues({...values, didRedirect: true});
-        });
+        if (data.token) {
+          authenticate(data, () => {
+            setValues({...values, didRedirect: true});
+          });
+        }
       }
     })
     .catch(console.log('Signin'));
@@ -109,9 +112,9 @@ const Signin = () => {
             <TextField
               type="email"
               placeholder="Email"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Error" : ""}
               variant="outlined"
               value={email}
               onChange={handleChange('email')}
@@ -121,9 +124,9 @@ const Signin = () => {
             <TextField
               type="password"
               placeholder="Password"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Error" : ""}
               variant="outlined"
               value={password}
               onChange={handleChange('password')}

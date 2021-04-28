@@ -14,7 +14,7 @@ const WebImg = () => {
 
   return (
     <Grid className={classes.brand} item xs={4}>
-      WebImg
+      
     </Grid>
   );
 };

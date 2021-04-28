@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {signin, authenticate, isAuthenticated} from '../apis/auth';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -32,6 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     margin: '2vh 2vh',
+  },
+  link: {
+    color: '#3f51b5',
+    textDecoration: 'none',
+    marginLeft: 10,
+  },
+  linkBox: {
+    marginBottom: '2vh',
   },
 }));
 
@@ -120,6 +128,11 @@ const Signin = () => {
               value={password}
               onChange={handleChange('password')}
             />
+          </div>
+          <div className={classes.linkBox}>
+            <Link className={classes.link}>
+            Forgot Password?
+            </Link>
           </div>
           <Button
             className={classes.btn}

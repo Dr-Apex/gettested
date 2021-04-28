@@ -43,7 +43,7 @@ const Signup = () => {
     phone: '',
     password: '',
     cpassword: '',
-    error: '',
+    error: false,
     success: false
   });
 
@@ -59,7 +59,7 @@ const Signup = () => {
     signup({name, email, phone, password})
     .then(data => {
       if (data.error) {
-        setValues({...values, error: data.error, success: false});
+        setValues({...values, error: true, success: false});
       } else {
         setValues({
           ...values,
@@ -97,56 +97,61 @@ const Signup = () => {
             <TextField
               type='text'
               placeholder="Name"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Invalid" : ""}
               variant="outlined"
               value={name}
               onChange={handleChange('name')}
+              helperText={error ? "first name must start with a capital letter" : ""}
             />
           </div>
           <div>
             <TextField
               type='email'
               placeholder="Email"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Invalid" : ""}
               variant="outlined"
               value={email}
               onChange={handleChange('email')}
+              helperText={error ? "@gmail.com/@yahoo.com is required" : ""}
             />
             <TextField
               type='number'
               placeholder="phone"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Invalid" : ""}
               variant="outlined"
               value={phone}
               onChange={handleChange('phone')}
+              helperText={error ? "must be of 10 Digital & should not start with zero" : ""}
             />
           </div>
           <div>
             <TextField
               type='password'
               placeholder="Password"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Invalid" : ""}
               variant="outlined"
               value={password}
               onChange={handleChange('password')}
+              helperText={error ? "must contain 1 Capital, 1 Small, Number & a Special Character & minimum 8 Characters" : ""}
             />
             <TextField
               type='password'
               placeholder="Confirm Password"
-              // error
-              id="outlined-error"
-              // label="Invalid"
+              error={error}
+              id="outlined-error-helper-text"
+              label={error ? "Invalid" : ""}
               variant="outlined"
               value={cpassword}
               onChange={handleChange('cpassword')}
+              helperText={error ? "passwords do not match" : ""}
             />
           </div>
           <Button

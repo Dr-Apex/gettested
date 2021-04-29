@@ -52,12 +52,13 @@ const Dates = () => {
     getReports().then(data => {
       if (data.error) {
         setError(data.error);
-        console.log(error);
       } else {
         setReports(data);
       }
     });
   };
+
+  console.log(error);
 
   useEffect(() => {
     loadReports();

@@ -1,5 +1,6 @@
 import {API} from '../../backend';
 
+// signup
 export const signup = user => {
   return fetch(`${API}/signup`, {
     method: 'POST',
@@ -15,6 +16,7 @@ export const signup = user => {
   .catch(err => console.log(err));
 };
 
+// signin
 export const signin = user => {
   return fetch(`${API}/signin`, {
     method: 'POST',
@@ -30,6 +32,7 @@ export const signin = user => {
   .catch(err => console.log(err));
 };
 
+// middlewares
 export const authenticate = (data, next) => {
   if (typeof window !== 'undefined') {
     localStorage.setItem('jwt', JSON.stringify(data));

@@ -16,7 +16,6 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-
 const useStyles = makeStyles((theme) => ({
   divider: {
     marginTop: '3vh',
@@ -68,6 +67,8 @@ const Test = () => {
     symptoms,
     sampleid
   } = values;
+
+  console.log(userid + sampleid);
 
   var today = new Date();
   var Tdate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -170,23 +171,58 @@ const Test = () => {
             />
             <FormGroup column>
               <FormControlLabel
-                control={<Checkbox checked={state.Fever} onChange={handleChange} name="Fever" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Fever}
+                    onChange={handleChange}
+                    name="Fever"
+                    color="primary"
+                  />
+                }
                 label="Fever"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Cough} onChange={handleChange} name="Cough" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Cough}
+                    onChange={handleChange}
+                    name="Cough"
+                    color="primary"
+                  />
+                }
                 label="Cough"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Fatigue} onChange={handleChange} name="Fatigue" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Fatigue}
+                    onChange={handleChange}
+                    name="Fatigue"
+                    color="primary"
+                  />
+                }
                 label="Fatigue"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.BodyAches} onChange={handleChange} name="BodyAches" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.BodyAches}
+                    onChange={handleChange}
+                    name="BodyAches"
+                    color="primary"
+                  />
+                }
                 label="Body Aches"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Headache} onChange={handleChange} name="Headache" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Headache}
+                    onChange={handleChange}
+                    name="Headache"
+                    color="primary"
+                  />
+                }
                 label="Headache"
               />
             </FormGroup>
@@ -211,23 +247,58 @@ const Test = () => {
             </MuiPickersUtilsProvider>
             <FormGroup column>
               <FormControlLabel
-                control={<Checkbox checked={state.SoreThroat} onChange={handleChange} name="SoreThroat" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.SoreThroat}
+                    onChange={handleChange}
+                    name="SoreThroat"
+                    color="primary"
+                  />
+                }
                 label="SoreThroat"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.RunnyNose} onChange={handleChange} name="RunnyNose" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.RunnyNose}
+                    onChange={handleChange}
+                    name="RunnyNose"
+                    color="primary"
+                  />
+                }
                 label="Runny Nose"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Loss} onChange={handleChange} name="Loss" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Loss}
+                    onChange={handleChange}
+                    name="Loss"
+                    color="primary"
+                  />
+                }
                 label="New loss of Taste or Smell"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Nausea} onChange={handleChange} name="Nausea" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Nausea}
+                    onChange={handleChange}
+                    name="Nausea"
+                    color="primary"
+                    />
+                  }
                 label="Nausea"
               />
               <FormControlLabel
-                control={<Checkbox checked={state.Diarrhea} onChange={handleChange} name="Diarrhea" color="primary" />}
+                control={
+                  <Checkbox
+                    checked={state.Diarrhea}
+                    onChange={handleChange}
+                    name="Diarrhea"
+                    color="primary"
+                  />
+                }
                 label="Diarrhea"
               />
             </FormGroup>

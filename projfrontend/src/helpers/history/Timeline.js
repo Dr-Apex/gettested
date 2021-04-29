@@ -48,6 +48,8 @@ const Timeline = ({setReportId}) => {
     });
   };
 
+  console.log(error);
+
   useEffect(() => {
     loadReports();
   }, []);

@@ -56,6 +56,8 @@ const Signin = () => {
   const {email, password, error, loading, didRedirect} = values;
   const {user} = isAuthenticated();
 
+  console.log(loading);
+
   const handleChange = name => event => {
     setValues({...values, error: false, [name]: event.target.value});
   };

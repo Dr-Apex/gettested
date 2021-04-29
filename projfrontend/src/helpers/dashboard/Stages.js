@@ -32,7 +32,6 @@ const Stages = ({reportId}) => {
       getReport(rId).then(data => {
         if (data.error) {
           setError(data.error);
-          console.log(error);
         } else {
           if (data.processing) {
             if (true) {
@@ -46,13 +45,19 @@ const Stages = ({reportId}) => {
     }
   };
 
+  console.log(error);
+
   useEffect(() => {
     loadReports(reportId);
   }, [reportId]);
 
   return (
     <Grid className={classes.brand} item xs={3}>
-      <Stepper className={classes.step} activeStep={activeStep} orientation="vertical">
+      <Stepper
+        className={classes.step}
+        activeStep={activeStep}
+        orientation="vertical"
+      >
         <Step>
           <StepLabel>Collected</StepLabel>
           <StepContent className={classes.line} />

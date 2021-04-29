@@ -15,7 +15,6 @@ const Dashboard = () => {
     getReports().then(data => {
       if (data.error) {
         setError(data.error);
-        console.log(error);
       } else {
         data.map((d, i) => {
           if (d.result) {
@@ -28,6 +27,8 @@ const Dashboard = () => {
       )}
     });
   };
+
+  console.log(error);
 
   useEffect(() => {
     loadReports();

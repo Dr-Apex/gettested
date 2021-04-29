@@ -49,6 +49,8 @@ const Signup = () => {
 
   const {name, email, phone, password, cpassword, error, success} = values;
 
+  console.log(success);
+
   const handleChange = name => event => {
     setValues({...values, error: false, [name]: event.target.value});
   };
@@ -103,7 +105,11 @@ const Signup = () => {
               variant="outlined"
               value={name}
               onChange={handleChange('name')}
-              helperText={error ? "first name must start with a capital letter" : ""}
+              helperText={
+                error
+                ? "first name must start with a capital letter"
+                : ""
+              }
             />
           </div>
           <div>
@@ -116,7 +122,11 @@ const Signup = () => {
               variant="outlined"
               value={email}
               onChange={handleChange('email')}
-              helperText={error ? "@gmail.com/@yahoo.com is required" : ""}
+              helperText={
+                error
+                ? "@gmail.com/@yahoo.com is required"
+                : ""
+              }
             />
             <TextField
               type='number'
@@ -127,7 +137,11 @@ const Signup = () => {
               variant="outlined"
               value={phone}
               onChange={handleChange('phone')}
-              helperText={error ? "must be of 10 Digital & should not start with zero" : ""}
+              helperText={
+                error
+                ? "must be of 10 Digital & should not start with zero"
+                : ""
+              }
             />
           </div>
           <div>
@@ -140,7 +154,11 @@ const Signup = () => {
               variant="outlined"
               value={password}
               onChange={handleChange('password')}
-              helperText={error ? "must contain 1 Capital, 1 Small, Number & a Special Character & minimum 8 Characters" : ""}
+              helperText={
+                error
+                ? "must contain 1 Capital, 1 Small, Number & a Special Character & minimum 8 Characters"
+                : ""
+              }
             />
             <TextField
               type='password'
@@ -151,7 +169,11 @@ const Signup = () => {
               variant="outlined"
               value={cpassword}
               onChange={handleChange('cpassword')}
-              helperText={error ? "passwords do not match" : ""}
+              helperText={
+                error
+                ? "passwords do not match"
+                : ""
+              }
             />
           </div>
           <Button

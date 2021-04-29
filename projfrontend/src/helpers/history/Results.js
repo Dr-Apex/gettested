@@ -41,6 +41,8 @@ const Results = ({reportId}) => {
     }
   };
 
+  console.log(error);
+
   useEffect(() => {
     loadReports(reportId);
   }, [reportId]);

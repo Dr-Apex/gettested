@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 
-
 const useStyles = makeStyles((theme) => ({
   brand: {
     height: '80vh',

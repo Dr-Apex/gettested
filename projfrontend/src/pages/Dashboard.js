@@ -8,6 +8,7 @@ import Message from '../helpers/dashboard/Message';
 import Grid from '@material-ui/core/Grid';
 
 const Dashboard = () => {
+  const [reportId, setReportId] = useState('');
   const [result, setResult] = useState(true);
   const [error, setError] = useState(false);
 
@@ -21,6 +22,7 @@ const Dashboard = () => {
             return false;
           } else {
             setResult(false);
+            setReportId(d._id);
             return true;
           }
         }
@@ -51,7 +53,7 @@ const Dashboard = () => {
           alignItems="center"
         >
           {result ? <Test /> : <Message />}
-          <Stages />
+          <Stages reportId={reportId} />
         </Grid>
       </Grid>
     </Grid>

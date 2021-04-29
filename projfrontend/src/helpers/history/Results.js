@@ -14,6 +14,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '3vh',
     marginBottom: '3vh',
   },
+  box: {
+    background: '#3f51b5',
+    color: '#efefef',
+    padding: 15,
+    borderRadius: 10,
+    opacity: 0.8,
+  },
   desc: {
     fontSize: 20,
   },
@@ -53,9 +60,9 @@ const Results = ({reportId}) => {
         Result
       </Typography>
       <Divider className={classes.divider} />
-      <div>
+      <div className={classes.box}>
         <Typography className={classes.desc} variant="body2" component="p">
-          {report.result}
+          {report.result ? report.result : 'Pending...'}
         </Typography>
       </div>
     </Grid>

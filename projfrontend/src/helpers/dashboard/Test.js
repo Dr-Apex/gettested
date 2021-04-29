@@ -169,7 +169,7 @@ const Test = () => {
               value={age}
               onChange={handleValueChange("age")}
             />
-            <FormGroup column>
+            <FormGroup>
               <FormControlLabel
                 control={
                   <Checkbox
@@ -245,7 +245,7 @@ const Test = () => {
                 />
               </Grid>
             </MuiPickersUtilsProvider>
-            <FormGroup column>
+            <FormGroup>
               <FormControlLabel
                 control={
                   <Checkbox

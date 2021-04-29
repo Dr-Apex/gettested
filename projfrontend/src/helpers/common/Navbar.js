@@ -57,6 +57,13 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     color: '#3f3f3f',
   },
+  active: {
+    '&:hover': {
+      color: '#3f51b5',
+      cursor: 'pointer',
+      opacity: 0.8,
+    },
+  },
 }));
 
 const Navbar = ({history}) => {
@@ -96,7 +103,7 @@ const Navbar = ({history}) => {
             [classes.hide]: open,
           })}
         >
-          <MenuIcon />
+          <MenuIcon className={classes.active} />
         </IconButton>
         <IconButton
           onClick={handleDrawerClose}
@@ -104,25 +111,31 @@ const Navbar = ({history}) => {
             [classes.hide]: !open,
           })}
         >
-          <ChevronLeftIcon />
+          <ChevronLeftIcon className={classes.active} />
         </IconButton>
         <Divider />
         <List>
           <Link className={classes.link} to="/dashboard">
             <ListItem button>
-              <ListItemIcon><DashboardIcon /></ListItemIcon>
+              <ListItemIcon>
+                <DashboardIcon className={classes.active} />
+              </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
           </Link>
           <Link className={classes.link} to="/history">
             <ListItem button>
-              <ListItemIcon><HistoryIcon /></ListItemIcon>
+              <ListItemIcon>
+                <HistoryIcon className={classes.active} />
+              </ListItemIcon>
               <ListItemText primary="History" />
             </ListItem>
           </Link>
           <Link className={classes.link} to="/account">
             <ListItem button>
-              <ListItemIcon><AccountBoxIcon /></ListItemIcon>
+              <ListItemIcon>
+                <AccountBoxIcon className={classes.active} />
+              </ListItemIcon>
               <ListItemText primary="Account" />
             </ListItem>
           </Link>
@@ -137,7 +150,9 @@ const Navbar = ({history}) => {
               });
             }}
           >
-            <ListItemIcon><ExitToAppIcon /></ListItemIcon>
+            <ListItemIcon>
+              <ExitToAppIcon className={classes.active} />
+            </ListItemIcon>
             <ListItemText primary="Signout" />
           </ListItem>
         </List>

@@ -135,7 +135,7 @@ const Signin = () => {
             />
           </div>
           <div className={classes.linkBox}>
-            <Link className={classes.link}>
+            <Link to="" className={classes.link}>
               Forgot Password?
             </Link>
           </div>

@@ -11,7 +11,7 @@ const {
 const {isSignedIn, isAuthenticated, isAdmin} = require('../controllers/auth');
 const {getUserById} = require('../controllers/user');
 
-// params
+// middlewares
 router.param('userId', getUserById);
 router.param('reportId', getReportById);
 

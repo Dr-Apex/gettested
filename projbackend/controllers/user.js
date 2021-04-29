@@ -1,5 +1,6 @@
 const User = require('../models/user');
 
+// middleware
 exports.getUserById = (req, res, next, id) => {
   User.findById(id).exec((err, user) => {
     if (err || !user) {
@@ -13,12 +14,14 @@ exports.getUserById = (req, res, next, id) => {
   });
 };
 
+// read
 exports.getUser = (req, res) => {
   req.profile.salt = undefined;
   req.profile.encry_password = undefined;
   return res.json(req.profile);
 };
 
+// update
 exports.updateUser = (req, res) => {
   User.findByIdAndUpdate(
     {_id: req.profile._id},

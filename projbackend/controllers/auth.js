@@ -5,6 +5,7 @@ const {validationResult} = require('express-validator');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 
+// signup
 exports.signup = (req, res) => {
   const errors = validationResult(req);
 
@@ -29,6 +30,7 @@ exports.signup = (req, res) => {
   });
 };
 
+// signin
 exports.signin = (req, res) => {
   const errors = validationResult(req);
   const {email, password} = req.body;
@@ -64,6 +66,7 @@ exports.signin = (req, res) => {
   });
 };
 
+// signout
 exports.signout = (req, res) => {
   res.clearCookie('token');
   res.json({

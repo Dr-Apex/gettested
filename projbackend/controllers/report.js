@@ -1,5 +1,6 @@
 const Report = require('../models/report');
 
+// middleware
 exports.getReportById = (req, res, next, id) => {
   Report.findById(id).exec((err, report) => {
     if (err) {
@@ -28,6 +29,7 @@ exports.createReport = (req, res) => {
   });
 };
 
+// read
 exports.getReport = (req, res) => {
   return res.json(req.report);
 };
@@ -44,6 +46,7 @@ exports.getAllReport = (req, res) => {
   });
 };
 
+// update
 exports.updateReport = (req, res) => {
   const report = req.report;
   report.name = req.body.name;
@@ -58,6 +61,7 @@ exports.updateReport = (req, res) => {
   });
 };
 
+// delete
 exports.removeReport = (req, res) => {
   const report = req.report;
   report.remove((err, report) => {

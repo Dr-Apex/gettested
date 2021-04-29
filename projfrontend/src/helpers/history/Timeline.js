@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '4vh',
   },
   itemBox: {
-    background: '#3f51b5',
-    color: '#fff',
+    color: '#3f51b5',
+    border: '1px solid #3f51b5',
     opacity: 0.9,
     height: '10vh',
     marginBottom: '4vh',
@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     '&:hover': {
+      background: '#3f51b5',
+      color: '#efefef',
       cursor: 'pointer',
       opacity: 0.8,
     },

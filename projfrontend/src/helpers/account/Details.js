@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '2vh',
     width: '20vw',
   },
+  head: {
+    color: '#3f3f3f',
+  },
 }));
 
 const Details = () => {
@@ -29,7 +32,7 @@ const Details = () => {
 
   return (
     <Grid className={classes.brand} item xs={8}>
-      <Typography variant="h4" component="h2">
+      <Typography className={classes.head} variant="h4" component="h2">
         Details
       </Typography>
       <Divider className={classes.divider} />

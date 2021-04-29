@@ -10,22 +10,35 @@ const useStyles = makeStyles((theme) => ({
   brand: {
     height: '80vh',
     marginTop: '4vh',
+    background: '#fff',
+    padding: 15,
   },
   divider: {
     marginTop: '3vh',
     marginBottom: '3vh',
   },
   itemBox: {
-    background: '#3f51b5',
-    color: '#fff',
+    color: '#3f51b5',
+    border: '1px solid #3f51b5',
     opacity: 0.9,
     height: '7vh',
     marginBottom: '4vh',
     borderRadius: 5,
+    display: 'flex',
+    alignItems: 'center',
+    '&:hover': {
+      background: '#3f51b5',
+      color: '#efefef',
+      cursor: 'pointer',
+      opacity: 0.8,
+    },
   },
   item: {
     fontSize: 25,
     marginLeft: '5vh',
+  },
+  head: {
+    color: '#3f3f3f',
   },
 }));
 
@@ -52,7 +65,7 @@ const Dates = () => {
 
   return (
     <Grid className={classes.brand} item xs={3}>
-      <Typography variant="h5" component="h2">
+      <Typography className={classes.head} variant="h5" component="h2">
         Past Testing Dates
       </Typography>
       <Divider className={classes.divider} />

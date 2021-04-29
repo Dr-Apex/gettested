@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {isAuthenticated} from '../apis/auth';
 import {getReport} from '../apis/user';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -18,11 +17,13 @@ const useStyles = makeStyles((theme) => ({
   desc: {
     fontSize: 20,
   },
+  head: {
+    color: '#3f3f3f',
+  },
 }));
 
 const Results = ({reportId}) => {
   const classes = useStyles();
-  const {user} = isAuthenticated();
   const [report, setReport] = useState([]);
   const [error, setError] = useState(false);
 
@@ -46,7 +47,7 @@ const Results = ({reportId}) => {
 
   return (
     <Grid className={classes.brand} item xs={3}>
-      <Typography variant="h4" component="h2">
+      <Typography className={classes.head} variant="h4" component="h2">
         Result
       </Typography>
       <Divider className={classes.divider} />

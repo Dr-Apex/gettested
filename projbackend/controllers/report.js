@@ -25,7 +25,6 @@ exports.createReport = (req, res) => {
       });
     }
     res.json({report});
-    console.log(req.body);
   });
 };
 
@@ -49,7 +48,12 @@ exports.getAllReport = (req, res) => {
 // update
 exports.updateReport = (req, res) => {
   const report = req.report;
-  report.name = req.body.name;
+  report.collected = req.body.collected;
+  report.processing = req.body.processing;
+  report.result = req.body.result;
+  console.log(report);
+
+  // save to DB
   report.save((err, updatedReport) => {
     if (err) {
       return res.status(400).json({

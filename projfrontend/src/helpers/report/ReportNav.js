@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {signout} from '../apis/auth';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
@@ -13,10 +13,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import HistoryIcon from '@material-ui/icons/History';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const drawerWidth = 240;
 
@@ -53,10 +51,6 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
-  link: {
-    textDecoration: 'none',
-    color: '#3f3f3f',
-  },
   active: {
     '&:hover': {
       color: '#3f51b5',
@@ -66,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = ({history}) => {
+const ReportNav = ({history}) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -115,30 +109,12 @@ const Navbar = ({history}) => {
         </IconButton>
         <Divider />
         <List>
-          <Link className={classes.link} to="/dashboard">
-            <ListItem button>
-              <ListItemIcon className={classes.active}>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-          </Link>
-          <Link className={classes.link} to="/history">
-            <ListItem button>
-              <ListItemIcon className={classes.active}>
-                <HistoryIcon />
-              </ListItemIcon>
-              <ListItemText primary="History" />
-            </ListItem>
-          </Link>
-          <Link className={classes.link} to="/account">
-            <ListItem button>
-              <ListItemIcon className={classes.active}>
-                <AccountBoxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Account" />
-            </ListItem>
-          </Link>
+          <ListItem button>
+            <ListItemIcon className={classes.active}>
+              <AssessmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Admin Panel" />
+          </ListItem>
         </List>
         <Divider />
         <List>
@@ -161,4 +137,4 @@ const Navbar = ({history}) => {
   );
 };
 
-export default withRouter(Navbar);
+export default withRouter(ReportNav);

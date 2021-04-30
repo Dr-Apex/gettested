@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {getReports} from '../helpers/apis/user';
+import {isAuthenticated} from '../helpers/apis/auth';
 import Navbar from '../helpers/common/Navbar';
 import Title from '../helpers/common/Title';
 import Test from '../helpers/dashboard/Test';
@@ -8,6 +9,7 @@ import Message from '../helpers/dashboard/Message';
 import Grid from '@material-ui/core/Grid';
 
 const Dashboard = () => {
+  const {user} = isAuthenticated();
   const [reportId, setReportId] = useState('');
   const [result, setResult] = useState(true);
   const [error, setError] = useState(false);
@@ -21,8 +23,10 @@ const Dashboard = () => {
           if (d.result) {
             return false;
           } else {
-            setResult(false);
-            setReportId(d._id);
+            if (d.userid === user._id) {
+              setResult(false);
+              setReportId(d._id);
+            }
             return true;
           }
         }

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
 import Account from './pages/Account';
+import Report from './pages/Report';
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/history" exact component={History} />
         <Route path="/account" exact component={Account} />
+        <Route path="/report" exact component={Report} />
       </Switch>
     </BrowserRouter>
   );

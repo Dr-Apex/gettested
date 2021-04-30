@@ -39,3 +39,20 @@ export const getReport = reportId => {
   })
   .catch(err => console.log(err));
 };
+
+// update report
+export const updateReport = (reportId, userId, token, report) => {
+  return fetch(`${API}/report/${reportId}/${userId}`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(report)
+  })
+  .then(response => {
+    return response.json();
+  })
+  .catch(err => console.log(err));
+};

@@ -24,3 +24,6 @@ An online platform to eliminate the manual interaction and revisiting of the per
 
 ## Account
 ![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Account.png)
+
+## Admin
+![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Admin.png)

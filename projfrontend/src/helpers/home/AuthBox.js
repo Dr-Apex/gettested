@@ -2,6 +2,7 @@ import React from 'react';
 import GetStarted from './GetStarted';
 import Signin from './Signin';
 import Signup from './Signup';
+import Forgot from './Forgot';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -13,17 +14,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthBox = ({card}) => {
+const AuthBox = ({card, setCard}) => {
   const classes = useStyles();
 
   const cardType = () => {
     switch (card) {
       case 'si':
-        return <Signin />;
+        return <Signin setCard={setCard} />;
       case 'su':
         return <Signup />;
+      case 'fp':
+        return <Forgot />;
       default: return <GetStarted />;
-
     }
   };
 

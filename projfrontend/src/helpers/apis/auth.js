@@ -32,6 +32,22 @@ export const signin = user => {
   .catch(err => console.log(err));
 };
 
+// forgot password
+export const forgot = email => {
+  return fetch(`${API}/forgot`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(email)
+  })
+  .then(response => {
+    return response.json();
+  })
+  .catch(err => console.log(err));
+};
+
 // middlewares
 export const authenticate = (data, next) => {
   if (typeof window !== 'undefined') {

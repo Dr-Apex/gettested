@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
-import {signin, authenticate, isAuthenticated} from '../apis/auth';
+import {forgot, isAuthenticated} from '../apis/auth';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -34,28 +34,30 @@ const useStyles = makeStyles((theme) => ({
     margin: '2vh 2vh',
   },
   link: {
-    background: '#fff',
     color: '#3f51b5',
+    textDecoration: 'none',
     marginLeft: 10,
-    border: 'none',
-    cursor: 'pointer',
   },
   linkBox: {
     marginBottom: '2vh',
   },
+  text: {
+    marginLeft: 25,
+    color: '#3f51b5',
+  },
 }));
 
-const Signin = ({setCard}) => {
+const Forgot = () => {
   const classes = useStyles();
   const [values, setValues] = useState({
-    email: 'drew01@gmail.com',
-    password: 'ab@dAbc9',
+    email: '',
+    url: '',
     error: false,
     loading: false,
     didRedirect: false
   });
 
-  const {email, password, error, loading, didRedirect} = values;
+  const {email, url, error, loading, didRedirect} = values;
   const {user} = isAuthenticated();
 
   console.log(loading);
@@ -67,28 +69,27 @@ const Signin = ({setCard}) => {
   const onSubmit = event => {
     event.preventDefault();
     setValues({...values, error: false, loading: true});
-    signin({email, password})
+    forgot({email})
     .then(data => {
       console.log(data);
       if (data.err) {
         setValues({...values, error: true, loading: false});
       } else {
-        if (data.token) {
-          authenticate(data, () => {
-            setValues({...values, didRedirect: true});
-          });
+          if (data.messageId) {
+            setValues({...values, url: data.messageUrl, didRedirect: true});
+          }
         }
       }
-    })
-    .catch(console.log('Signin'));
+    )
+    .catch(console.log('Forgot'));
   };
 
   const performRedirect = () => {
     if (didRedirect) {
       if (user && user.role === 1) {
-        return <Redirect to='/report' />;
+        window.location.href = url;
       } else {
-        return <Redirect to='/dashboard' />;
+        window.location.href = url;
       }
     }
     if (isAuthenticated()) {
@@ -107,10 +108,13 @@ const Signin = ({setCard}) => {
       <Card className={classes.root}>
         <CardContent>
           <Typography variant="h4" component="h2">
-            Signin
+            Forgot Password
           </Typography>
           <Divider className={classes.divider} />
         </CardContent>
+        <Typography className={classes.text} variant="body2" component="p">
+          <b>Enter your registered email</b>
+        </Typography>
         <form className={classes.form} noValidate autoComplete="off">
           <div>
             <TextField
@@ -124,30 +128,13 @@ const Signin = ({setCard}) => {
               onChange={handleChange('email')}
             />
           </div>
-          <div>
-            <TextField
-              type="password"
-              placeholder="Password"
-              error={error}
-              id="outlined-error-helper-text"
-              label={error ? "Error" : ""}
-              variant="outlined"
-              value={password}
-              onChange={handleChange('password')}
-            />
-          </div>
-          <div className={classes.linkBox}>
-            <button className={classes.link} onClick={() => setCard('fp')}>
-              Forgot Password?
-            </button>
-          </div>
           <Button
             className={classes.btn}
             variant="contained"
             color="primary"
             onClick={onSubmit}
           >
-            Signin
+            Forgot
           </Button>
           {performRedirect()}
         </form>
@@ -156,4 +143,4 @@ const Signin = ({setCard}) => {
   );
 };
 
-export default Signin;
+export default Forgot;

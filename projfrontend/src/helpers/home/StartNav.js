@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: 30,
     width: 30,
+    cursor: 'pointer',
   },
   btn: {
     marginLeft: 15,
@@ -39,7 +40,12 @@ const StartNav = ({setCard}) => {
       <AppBar className={classes.toolbar} position="static">
         <Toolbar>
           <div className={classes.logoBox}>
-            <img className={classes.logo} src={GT} alt="GetTested" />
+            <img
+              className={classes.logo}
+              src={GT}
+              alt="GetTested"
+              onClick={() => setCard('gs')}
+            />
           </div>
           <Button variant="outlined" onClick={() => setCard('si')}>Signin</Button>
           <Button

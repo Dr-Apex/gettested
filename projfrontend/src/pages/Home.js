@@ -23,7 +23,7 @@ const Home = () => {
           justify="space-around"
           alignItems="center"
         >
-          <AuthBox card={card} />
+          <AuthBox card={card} setCard={setCard} />
           <WebImg />
         </Grid>
       </Grid>

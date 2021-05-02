@@ -7,6 +7,9 @@ An online platform to eliminate the manual interaction and revisiting of the per
 ## Signin
 ![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Signin.png)
 
+## Forgot Password
+![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Forgot.png)
+
 ## Signup
 ![name-of-you-image](https://github.com/Dr-Apex/gettested/blob/master/projfrontend/screenshots/Signup.png)
 
